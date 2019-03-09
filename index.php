@@ -1,1 +1,1 @@
-<?php header( 'Location: /GOSONIX-ASSIGNMENT.html> ) ; ?>
+<?php header( 'Location: /GOSONIX-ASSIGNMENT.html' ) ; ?>
