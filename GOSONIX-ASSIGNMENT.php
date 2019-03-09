@@ -1,0 +1,1 @@
+<?php header( 'Locationg: /GOSONIX-ASSIGNMENT.html> ) ; ?>
