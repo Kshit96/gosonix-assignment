@@ -86,12 +86,12 @@
 				$Visit=1;
 			}
 
-			//$resource=$conn->query('Select * from ip_addresses');
-			//while($rows=$resource->fetch_assoc()){
-			//	print_r($rows);
-			//	echo "<br>";
-			//	}
-			//$resource->free();			
+			$resource=$conn->query('Select * from ip_addresses');
+			while($rows=$resource->fetch_assoc()){
+				print_r($rows);
+				echo "<br>";
+				}
+			$resource->free();			
 
 			
 			$conn->close();
