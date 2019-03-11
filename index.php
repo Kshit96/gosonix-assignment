@@ -54,17 +54,21 @@
 			
 			$row=mysqli_fetch_row($result2);
 			$count=$row[0];
-
+			echo $count;
+			echo "<br>";
+	
 			$sql3="Select * from `ip_addresses` where IP='".$ip2."'";
 			$result3=$conn->query($sql3);
 			$row1=mysqli_fetch_row($result3);
 
 
-						
-			$res = mysqli_query("DESCRIBE ip_address");
-			while($row = mysqli_fetch_array($res)) {
-    				echo "{$row['Field']} - {$row['Type']}\n";
-			}
+			$resource=$conn->query('Select * from ip_addresses');
+			while($rows=$resource->fetch_assoc()){
+				print_r($rows);
+				echo "<br>";
+				}
+			$resource->free();			
+
 			
 			$conn->close();
 			echo $_SERVER['REMOTE_ADDR'];
