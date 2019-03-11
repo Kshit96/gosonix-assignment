@@ -47,13 +47,13 @@
 				)";
 			$result=$conn->query($sql);
 			
-			$ip2="1.1.1.5";
+			$ip2="1.1.1.1";
 			$sql2="Select count(ID) from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 			print_r($result2->fetch_assoc());
 			
 			$count=0;
-			while($row=mysql_fetch_row($result2))
+			while($row=mysql_fetch_array($result2,MYSQL_ASSOC))
 			{
 				echo $row['count(ID)'];
 				$count=$row['count(ID)'];
