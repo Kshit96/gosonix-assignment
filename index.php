@@ -8,6 +8,8 @@
 	</style>
 	</head>
 		<?php 
+
+//Parsing ClearDB parameters
 			$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
 			$cleardb_server   = $cleardb_url["host"];
 			$cleardb_username = $cleardb_url["user"];
@@ -37,22 +39,25 @@
     				'failover' => array(),
     				'save_queries' => TRUE
 			);
+//Establishing connection with the databse
 			$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
+//table name
 			$table='ip_addresses';
+//Cretaing table if it does not exist
 			$sql = "CREATE TABLE IF NOT EXISTS $table (
 				ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 				Visit INT,
 				IP VARCHAR(255)
 				)";
 			$result=$conn->query($sql);
-			
+//Finding out the IP address of visitor
 			$ip2=$_SERVER['REMOTE_ADDR'];
 			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         			$ip2 = $_SERVER['HTTP_CLIENT_IP'];
     			} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         			$ip2 = $_SERVER['HTTP_X_FORWARDED_FOR'];
     			}
+//Checking for an existing entry
 			$sql2="Select count(ID) from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 			$count=0;
@@ -66,6 +71,7 @@
 			//echo "<br>";
 			$Visit=0;
 			$Number=0;
+//Extracting unique visitor number and actual visit number
 			$sql3="Select * from `ip_addresses` where IP='".$ip2."'";
 			$result3=$conn->query($sql3);
 			while($output2=$result3->fetch_assoc()){
@@ -77,13 +83,14 @@
 			//echo "<br>";
 			//echo $Number;
 			//echo "<br>";
-
+//if entry exists, update visit number and add it back to DB
 			if ($count>0){
 				$Visit=$Visit+1;
 				//echo "Incremented Visit:".$Visit."<br>";
 				$update_query="Update `ip_addresses` Set Visit='$Visit' where IP='".$ip2."'";
 				$result5=$conn->query($update_query);
 			}
+//if entry does not exist, create a new entry and add it to DB
 			else {
 				$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
 				$result4=$conn->query($sql4);
@@ -102,12 +109,14 @@
 			//	}
 			//$resource->free();			
 
-			
+//closing connection			
 			$conn->close();
 	
 			//echo $ip2;
+//unique id on autoincrement increases as 2,12,22,32-hence the calculation to find unique visiotr id
 			$x=$Number/10+.8;
 			$y=$x%10;
+//appending suffix according to last digit of the unique visitor id
 			$pf="th";
 			if($y==1)
 			{
@@ -122,7 +131,7 @@
 			{
 				$pf=$pf;
 			}
-
+//appending suffix according to last digit of the visit number
 			$y=$Visit%10;
 			$pf1="th";
 			if($y==1)
@@ -139,7 +148,7 @@
 				$pf1=$pf1;
 			}
 
-			
+//printing the message with formatting
 			echo "<center><p>Hi Human ", "\u{1f44b}", " You are the $x<sup>$pf</sup> visitor and this is your $Visit<sup>$pf1</sup> visit!</p></center>";
 			
 			
