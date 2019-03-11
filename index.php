@@ -41,7 +41,7 @@
 			if ($conn->connect_error) {
                			die("Connection failed: " . $conn->connect_error);
             		} 
-            		$sql = "CREATE TABLE IF NOT EXIST $table (
+            		$sql = "CREATE TABLE IF NOT EXISTS $table (
 				IP VARCHAR(255) PRIMARY KEY,
 				Visit INT
 				)";
