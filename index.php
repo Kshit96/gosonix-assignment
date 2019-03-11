@@ -81,7 +81,8 @@
 			}else {
 				$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
 				$result4=$conn->query($sql4);
-				echo $result4->fetch_assoc()['ID'];
+				$Number=$result4->fetch_assoc()['ID'];
+				$Visit=1;
 			}
 
 			$resource=$conn->query('Select * from ip_addresses');
@@ -93,8 +94,9 @@
 
 			
 			$conn->close();
+	
 			echo $_SERVER['REMOTE_ADDR'];
-			$x=53;
+			$x=$Number/10+1;;
 			$y=$x%10;
 			$pf="th";
 			if($y==1)
@@ -111,8 +113,24 @@
 				$pf=$pf;
 			}
 
+			$y=$Visit%10;
+			$pf1="th"
+			if($y==1)
+			{
+				$pf1="st";
+			} elseif ($y==2)
+			{
+				$pf1="nd";
+			} elseif ($y==3)
+			{
+				$pf1="rd";
+			} else
+			{
+				$pf1=$pf1;
+			}
+
 			
-			echo "<center><p>Hi Human ", "\u{1f44b}", " You are the $x<sup>$pf</sup> visitor!</p></center>";
+			echo "<center><p>Hi Human ", "\u{1f44b}", " You are the $x<sup>$pf</sup> visitor and this is your $Visit<sup>$pf1</sup> visit!</p></center>";
 			
 			
 
