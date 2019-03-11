@@ -45,10 +45,11 @@
 				Visit INT,
 				IP VARCHAR(255)
 				)";
-
-
+			$result=$conn->query($sql);
+			
 			$ip2="1.1.1.1";
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
+			$result2=$conn->query($sql2);
 			if ($result2->num_row<=0){
 				echo "New Row code executed";
 			}else {
