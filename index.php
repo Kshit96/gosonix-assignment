@@ -55,7 +55,7 @@
 				echo "<br>";
 			}
 			
-			$row=mysqli_fetch_row($result2);
+			$row=mysqli_fetch_assoc($result2);
 			$count=$row[0];
 			echo $count;
 
