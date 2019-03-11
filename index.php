@@ -52,6 +52,7 @@
 			$result2=$conn->query($sql2);
 			if ($result2){
 				echo "New Row code executed";
+				print_r($result2->fetch_assoc());
 			}else {
 				print_r($result2->fetch_assoc());
 			}
