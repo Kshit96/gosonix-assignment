@@ -47,7 +47,7 @@
 				)";
 			$result=$conn->query($sql);
 			
-			$ip2="1.1.1.1";
+			$ip2="1.1.1.6";
 			$sql2="Select count(ID) from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 			$count=0;
@@ -78,11 +78,9 @@
 				echo "Incremented Visit:".$Visit."<br>";
 				$update_query="Update `ip_addresses` Set Visit='$Visit' where IP='".$ip2."'";
 				$result5=$conn->query($update_query);
-				echo "<br>";
 			}else {
-				//$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
-				//$result4=$conn->query($sql4);
-				//print_r($result4->fetch_assoc());
+				$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
+				$result4=$conn->query($sql4);
 			}
 
 			$resource=$conn->query('Select * from ip_addresses');
