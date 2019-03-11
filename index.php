@@ -71,20 +71,6 @@
 				echo "Add code to add new visitor";
 			}
 
-			$sql = 'SELECT * FROM ip_address';
-   			$retval = mysqli_query( $conn,$sql );
-   
-   			if(! $retval ) {
-      			die('Could not get data: ' . mysqli_error($conn));
-   			}
-   
-  			 while($row = $row = $result->fetch_assoc()) {
-      				echo "ID :{$row['ID']}  <br> ".
-         				"VISIT Number : {$row['Visit']} <br> ".
-         				"IP ADDRESS : {$row['IP']} <br> ".
-         				"--------------------------------<br>";
-   					echo "Fetched data successfully\n";
-			}
    
    			
 
