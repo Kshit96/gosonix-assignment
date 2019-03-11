@@ -52,13 +52,8 @@
 			$result2=$conn->query($sql2);
 			print_r($result2->fetch_assoc());
 			
-			$count=0;
-			while($row=mysql_fetch_array($result2,MYSQL_ASSOC))
-			{
-				echo $row['count(ID)'];
-				$count=$row['count(ID)'];
-			}
-			echo $count;
+			$count=mysql_result($result2,0);
+			
 			if ($count>0){
 				print_r($result2->fetch_assoc());
 			}else {
