@@ -53,7 +53,7 @@
 			print_r($result2->fetch_assoc());
 			
 			$row=mysqli_fetch_row($result2);
-			
+			$count=$row[0];
 			if ($count>0){
 				print_r($result2->fetch_assoc());
 			}else {
