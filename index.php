@@ -51,7 +51,8 @@
 				Visit INT,
 				IP VARCHAR(255)
 				)";
-
+			$result=mysqli_query($conn, $sql);
+			echo $result,"<br>";
 
 			$val=mysqli_query("select 1 from `ip_addresses` LIMIT 1");
 			if($val !== FALSE)
