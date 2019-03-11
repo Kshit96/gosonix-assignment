@@ -35,12 +35,6 @@
             		}
 			$sql1="Select Visit from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
 			$result=mysqli_query($conn, $sql1);
-			if ($conn->query($sql) === TRUE) {
-               			echo "Selected successfully","<br>";
-            		} else {
-               			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
-            		}
-			echo $result,"<br>";
 			if ($result){
 				echo "Add code to give unique visitor number and visitor number";
 			}else {
