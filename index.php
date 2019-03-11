@@ -118,13 +118,13 @@
 			$y=$x%10;
 //appending suffix according to last digit of the unique visitor id
 			$pf="th";
-			if($y==1)
+			if($y==1 && $x%100!=11)
 			{
 				$pf="st";
-			} elseif ($y==2)
+			} elseif ($y==2 && $x%100!=11)
 			{
 				$pf="nd";
-			} elseif ($y==3)
+			} elseif ($y==3 && $x%100!=11)
 			{
 				$pf="rd";
 			} else
@@ -134,13 +134,13 @@
 //appending suffix according to last digit of the visit number
 			$y=$Visit%10;
 			$pf1="th";
-			if($y==1)
+			if($y==1 && $x%100!=11)
 			{
 				$pf1="st";
-			} elseif ($y==2)
+			} elseif ($y==2 && $x%100!=11)
 			{
 				$pf1="nd";
-			} elseif ($y==3)
+			} elseif ($y==3 && $x%100!=11)
 			{
 				$pf1="rd";
 			} else
