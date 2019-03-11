@@ -79,6 +79,12 @@
 				$update_query="Update `ip_addresses` Set Visit='$Visit' where IP='".$_SERVER['REMOTE_ADDR']."'";
 				$result5=$conn->query($update_query);
 			}
+			else {
+				$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
+				$result4=$conn->query($sql4);
+				$Number=$result4->fetch_assoc()['ID'];
+				$Visit=1;
+			}
 
 			//$resource=$conn->query('Select * from ip_addresses');
 			//while($rows=$resource->fetch_assoc()){
