@@ -54,6 +54,7 @@
 				print_r($result2->fetch_assoc());
 			}else {
 				echo "New code to be executed";
+				print_r($result2->fetch_assoc());
 			}
 						
 			
