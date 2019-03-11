@@ -39,7 +39,7 @@
 			);
 			$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 			$table='ip_address';
-			if ($db->connect_error) {
+			if ($conn->connect_error) {
                			die("Connection failed: " . $conn->connect_error);
             		} 
             		$sql = "CREATE TABLE IF NOT EXISTS $table (
@@ -48,20 +48,20 @@
 				IP VARCHAR(255)
 				)";
 
-            		$result=mysqli_query($db, $sql);
+            		$result=mysqli_query($conn, $sql);
 			echo $result,"<br>";
 			
-			if ($db->query($sql) === TRUE) {
+			if ($conn->query($sql) === TRUE) {
                			echo "Table created successfully","<br>";
             		} else {
                			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
             		}
-			$sql1="Select Visit, from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
-			$result=mysqli_query($db, $sql1);
-			if ($db->query($sql) === TRUE) {
+			$sql1="Select Visit,IP from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
+			$result=mysqli_query($conn, $sql1);
+			if ($conn->query($sql) === TRUE) {
                			echo "Selected successfully","<br>";
             		} else {
-               			echo "Error: " . $sql . "" . mysqli_error($db),"<br>";
+               			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
             		}
 			echo $result,"<br>";
 			if ($result){
@@ -72,10 +72,10 @@
 			}
 
 			$sql = 'SELECT * FROM ip_address';
-   			$retval = mysqli_query( $db,$sql );
+   			$retval = mysqli_query( $conn,$sql );
    
    			if(! $retval ) {
-      			die('Could not get data: ' . mysqli_error($db));
+      			die('Could not get data: ' . mysqli_error($conn));
    			}
    
   			 while($row = $row = $result->fetch_assoc()) {
@@ -94,7 +94,7 @@
 			//	echo $row,"<br>";
 
 
-            		$db->close();
+            		$conn->close();
 			echo $_SERVER['REMOTE_ADDR'];
 			$x=53;
 			$y=$x%10;
