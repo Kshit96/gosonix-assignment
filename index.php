@@ -53,7 +53,7 @@
 			print_r($result2->fetch_assoc());
 			
 			$count=0;
-			while($row=mysql_fetch_assoc($result2))
+			while($row=mysql_fetch_row($result2))
 			{
 				echo $row['count(ID)'];
 				$count=$row['count(ID)'];
