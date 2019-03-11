@@ -28,11 +28,11 @@
 			
 			echo "<center><p>Hi Human ", "\u{1f44b}", " You are the $x<sup>$pf</sup> visitor!</p></center>";
 			
-
+			echo $_SERVER['REMOTE_ADDR'];
 
 
 		?> 
 			<br>
-		<img align="middle" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/teaching_f1cm.svg" alt="Teaching" width="2000" height="500">
+		<img align="middle" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/teaching_f1cm.svg" alt="Teaching" width="1000" height="300">
 	</body>
 </html>
