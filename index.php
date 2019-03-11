@@ -113,7 +113,7 @@
 				$pf=$pf;
 			}
 
-			$y=$Visit%10;
+			$y=$Visit/10;
 			$pf1="th";
 			if($y==1)
 			{
