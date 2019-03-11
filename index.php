@@ -13,8 +13,38 @@
 			$cleardb_username = $cleardb_url["user"];
 			$cleardb_password = $cleardb_url["pass"];
 			$cleardb_db       = substr($cleardb_url["path"],1);
-			
+			$active_group = 'default';
+			$query_builder = TRUE;
+
+			$db['default'] = array(
+    				'dsn'    => '',
+    				'hostname' => $cleardb_server,
+    				'username' => $cleardb_username,
+   				'password' => $cleardb_password,
+    				'database' => $cleardb_db,
+    				'dbdriver' => 'mysqli',
+    				'dbprefix' => '',
+    				'pconnect' => FALSE,
+    				'db_debug' => (ENVIRONMENT !== 'production'),
+    				'cache_on' => FALSE,
+    				'cachedir' => '',
+    				'char_set' => 'utf8',
+    				'dbcollat' => 'utf8_general_ci',
+    				'swap_pre' => '',
+    				'encrypt' => FALSE,
+    				'compress' => FALSE,
+    				'stricton' => FALSE,
+    				'failover' => array(),
+    				'save_queries' => TRUE
+			);
 			$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+			if ($conn->connect_error) {
+               			die("Connection failed: " . $conn->connect_error);
+            		} 
+			else
+			{
+				echo "Connected Successfully";
+			}
 			$table='ip_address';
 			$val=mysqli_query("select 1 from `ip_address` LIMIT 1");
 			$res = mysql_query('DESCRIBE ip_address');
@@ -29,9 +59,7 @@
 			{
     				echo "Table not found";
 			}
-			if ($conn->connect_error) {
-               			die("Connection failed: " . $conn->connect_error);
-            		} 
+			
             		$sql = "CREATE TABLE IF NOT EXISTS $table (
 				ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 				Visit INT,
