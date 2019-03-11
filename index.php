@@ -47,7 +47,7 @@
 				)";
 
 
-			$ip2="1.1.1.5";
+			$ip2="1.1.1.1";
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
 			if ($result2->num_row<=0){
 				echo "New Row code executed";
