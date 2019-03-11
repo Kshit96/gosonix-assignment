@@ -45,30 +45,35 @@
 			{
 				echo "Connected Successfully";
 			}
-			$table='ip_address';
-			$sql = "CREATE TABLE IF NOT EXISTS $table (
-				ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-				Visit INT,
-				IP VARCHAR(255)
-				)";
-			$result=mysqli_query($conn, $sql);
-			echo $result,"<br>";
 
-			$sql2="INSERT INTO `ip_address` (Visit,IP) values (1,'1.1.1.1'),(1,'1.1.1.2'),(1,'1.1.1.3')";
-			
-
-			if ($conn->query($sql2)) {
-               			echo "New record created successfully";
-            		} else {
-               			echo "Error: " . $sql2 . "" . mysqli_error($conn);
-           		}
-			
-			$resource=$conn->query('Select * from ip_address');
-			while($rows=$resource->fetch_assoc()){
-				print_r($rows);
+			$val=mysqli_query("select 1 from `ip_address` LIMIT 1");
+			if($val !== FALSE)
+			{
+  				echo "Table found";
 			}
-			$resource->free();			
-            		$conn->close();
+			else
+			{
+    				echo "Table not found";
+			}
+			
+			$table='ip_address';
+			
+			$sql="DROP table if exists ip_address";
+			$result=mysqli_query($conn, $sql);
+			echo $result,"<br>";			
+            		
+			
+			$val=mysqli_query("select 1 from `ip_address` LIMIT 1");
+			if($val !== FALSE)
+			{
+  				echo "Table found";
+			}
+			else
+			{
+    				echo "Table not found";
+			
+
+			$conn->close();
 			echo $_SERVER['REMOTE_ADDR'];
 			$x=53;
 			$y=$x%10;
