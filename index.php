@@ -56,8 +56,8 @@
 			}
 			
 			$row=mysqli_fetch_array($result2);
-			$count=$row['count(ID)'];
-			echo $count;
+			echo $row['count(ID)'];
+			
 
 			$resource=$conn->query('Select * from ip_addresses');
 			while($rows=$resource->fetch_assoc()){
