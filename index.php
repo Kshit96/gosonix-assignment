@@ -43,9 +43,9 @@
                			die("Connection failed: " . $conn->connect_error);
             		} 
             		$sql = "CREATE TABLE IF NOT EXISTS $table (
-				IP VARCHAR(255) PRIMARY KEY,
+				ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 				Visit INT,
-				UniqueID INT
+				IP VARCHAR(255)
 				)";
 
             		$result=mysqli_query($conn, $sql);
@@ -56,12 +56,18 @@
             		} else {
                			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
             		}
-			$sql1="Select * from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
-			$result=mysqli_query($sql1, $sql);
+			$sql1="Select Visit, from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
+			$result=mysqli_query($conn, $sql1);
+			if ($conn->query($sql) === TRUE) {
+               			echo "Selected successfully","<br>";
+            		} else {
+               			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
+            		}
 			echo $result,"<br>";
 			if ($result){
 				echo "Add code to give unique visitor number and visitor number";
 			}else {
+				$sql="INSER INTO ip_address (Visit,IP) values (1,".$_SERVER['REMOTE_ADDR'].")";
 				echo "Add code to add new visitor";
 			}
 			//if(is_resource($result) && mysqli_num_rows($result)==1){
@@ -96,6 +102,6 @@
 
 		?> 
 			<br>
-		<img align="middle" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/teaching_f1cm.svg" alt="Teaching" width="1000" height="300">
+		<center><img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/teaching_f1cm.svg" alt="Teaching" width="1000" height="300"></center>
 	</body>
 </html>
