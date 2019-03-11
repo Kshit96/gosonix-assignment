@@ -91,17 +91,17 @@
 				$Visit=1;
 			}
 
-			$resource=$conn->query('Select * from ip_addresses');
-			while($rows=$resource->fetch_assoc()){
-				print_r($rows);
-				echo "<br>";
-				}
-			$resource->free();			
+			//$resource=$conn->query('Select * from ip_addresses');
+			//while($rows=$resource->fetch_assoc()){
+			//	print_r($rows);
+			//	echo "<br>";
+			//	}
+			//$resource->free();			
 
 			
 			$conn->close();
 	
-			echo $ip2;
+			//echo $ip2;
 			$x=$Number/10+.8;
 			$y=$x%10;
 			$pf="th";
