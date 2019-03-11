@@ -78,14 +78,15 @@
       			die('Could not get data: ' . mysqli_error($conn));
    			}
    
-  			 while($row = mysqli_fetch_assoc($retval)) {
+  			 while($row = $row = $result->fetch_assoc()) {
       				echo "ID :{$row['ID']}  <br> ".
          				"VISIT Number : {$row['Visit']} <br> ".
          				"IP ADDRESS : {$row['IP']} <br> ".
          				"--------------------------------<br>";
-   			}
+   					echo "Fetched data successfully\n";
+			}
    
-   			echo "Fetched data successfully\n";
+   			
 
 
 			//if(is_resource($result) && mysqli_num_rows($result)==1){
