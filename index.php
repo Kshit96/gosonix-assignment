@@ -71,7 +71,7 @@
 				echo "<br>";
 			}
 			
-			$ip="1.1.1.1"
+			$ip="1.1.1.1";
 			$sql1="Select * from `ip_address` where IP='".$ip."'";
 			$result1=$conn->query($sql1);
 			while ($row=$result1->fetch_assoc())
@@ -79,7 +79,7 @@
 				print_r($row);
 			}
 			
-			$ip2="1.1.1.5"
+			$ip2="1.1.1.5";
 			$sql2="Select * from `ip_address` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 
