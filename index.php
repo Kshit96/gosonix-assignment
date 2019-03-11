@@ -69,18 +69,18 @@
 			while($rows=$resource->fetch_assoc()){
 				print_r($rows);
 				echo "<br>";
-			}
+				}
 			
 			$ip="1.1.1.1";
 			$sql1="Select * from `ip_addresses` where IP='".$ip."'";
 			$result1=$conn->query($sql1);			
 			print_r($result1->fetch_assoc());
-			echo $result1."<br>";
+			echo $result1->num_row;
 
 			$ip2="1.1.1.5";
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
-			echo $result2."<br>";
+			echo $result2->num_row;
 			if ($result2->num_row===0){
 				echo "New Row code executed";
 			}else {
