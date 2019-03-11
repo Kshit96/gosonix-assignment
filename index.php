@@ -45,9 +45,16 @@
 			{
 				echo "Connected Successfully";
 			}
+			$showTable="show tables";
+			while($table1=mysqli_fetch_array($showTable))
+			{
+				echo($table1[0] . "<BR>");
+			}
+
+
 			$table='ip_address';
 			$val=mysqli_query("select 1 from `ip_address` LIMIT 1");
-			$res = mysqli_query('DESCRIBE ip_address');
+			$res = mysqli_query("DESCRIBE ip_address");
 			while($row = mysqli_fetch_array($res)) {
     				echo "{$row['Field']} - {$row['Type']}\n";
 			}
@@ -82,7 +89,7 @@
 				print_r($row);
 			}
 			if ($result1->num_row===0){
-				$sql2="INSER INTO `ip_address` (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
+				$sql2="INSERT INTO `ip_address` (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
 				if ($conn->query($sql2)) {
                				echo "New record created successfully";
             			} else {
