@@ -38,57 +38,23 @@
     				'save_queries' => TRUE
 			);
 			$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-			if ($conn->connect_error) {
-               			die("Connection failed: " . $conn->connect_error);
-            		} 
-			else
-			{
-				echo "Connected Successfully<br>";
-			}
+
 			$table='ip_addresses';
 			$sql = "CREATE TABLE IF NOT EXISTS $table (
 				ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 				Visit INT,
 				IP VARCHAR(255)
 				)";
-			$result=mysqli_query($conn, $sql);
-			echo $result,"<br>";
 
-			$val=mysqli_query("select 1 from `ip_addresses` LIMIT 1");
-			if($val !== FALSE)
-			{
-  				echo "Table found<br>";
-			}
-			else
-			{
-    				echo "Table not found<br>";
-			}
-			
-
-			$resource=$conn->query('Select * from ip_addresses');
-			while($rows=$resource->fetch_assoc()){
-				print_r($rows);
-				echo "<br>";
-				}
-			$resource->free();			
-
-			$ip="1.1.1.1";
-			$sql1="Select * from `ip_addresses` where IP='".$ip."'";
-			$result1=$conn->query($sql1);			
-			print_r($result1->fetch_assoc());
-			echo $result1->num_row;
 
 			$ip2="1.1.1.5";
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
-			$result2=$conn->query($sql2);
-			echo $result2->num_row;
 			if ($result2->num_row<=0){
 				echo "New Row code executed";
 			}else {
 				print_r($result2->fetch_assoc());
 			}
-			
-			print_r($result2->fetch_assoc());			
+						
 			
 			$conn->close();
 			echo $_SERVER['REMOTE_ADDR'];
