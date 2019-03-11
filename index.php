@@ -87,7 +87,11 @@
 			else {
 				$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
 				$result4=$conn->query($sql4);
-				$Number=$result4->fetch_assoc()['ID'];
+				$result3=$conn->query($sql3);
+				while($output2=$result3->fetch_assoc()){
+					$Number=$output2['ID'];
+				}
+
 				$Visit=1;
 			}
 
