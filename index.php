@@ -70,6 +70,24 @@
 				$sql="INSER INTO ip_address (Visit,IP) values (1,".$_SERVER['REMOTE_ADDR'].")";
 				echo "Add code to add new visitor";
 			}
+
+			$sql = 'SELECT * FROM ip_address';
+   			$retval = mysql_query( $conn,$sql );
+   
+   			if(! $retval ) {
+      			die('Could not get data: ' . mysql_error());
+   			}
+   
+  			 while($row = mysql_fetch_assoc($retval)) {
+      				echo "ID :{$row['ID']}  <br> ".
+         				"VISIT Number : {$row['Visit']} <br> ".
+         				"IP ADDRESS : {$row['IP']} <br> ".
+         				"--------------------------------<br>";
+   			}
+   
+   			echo "Fetched data successfully\n";
+
+
 			//if(is_resource($result) && mysqli_num_rows($result)==1){
 			//	$row=mysqli_fetch_assoc($result);
 			//	echo $row,"<br>";
