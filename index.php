@@ -45,11 +45,12 @@
 				echo "Add code to give unique visitor number and visitor number";
 			}else {
 				$sql="INSER INTO ip_address (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
-				echo "Add code to add new visitor";
+				if (mysqli_query($conn, $sql)) {
+               				echo "New record created successfully";
+            			} else {
+               				echo "Error: " . $sql . "" . mysqli_error($conn);
+           			}
 			}
-
-   
-   			
 
 
 			//if(is_resource($result) && mysqli_num_rows($result)==1){
