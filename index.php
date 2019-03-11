@@ -76,9 +76,8 @@
 			if ($count>0){
 				$Visit=$Visit+1;
 				echo "Incremented Visit:".$Visit."<br>";
-				$update_query="Update ip_addresses Set Visit=",$Visit," where IP='".$ip2."'";
+				$update_query="Update `ip_addresses` Set Visit=",$Visit," where IP='".$ip2."'";
 				$result5=$conn->query($update_query);
-				print_r($result5->fetch_assoc());
 				echo "<br>";
 			}else {
 				//$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
