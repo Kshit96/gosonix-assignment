@@ -51,7 +51,7 @@
 			$sql2="Select count(ID) from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 			$ount=0;
-			while($row=mysql_fetch_array($result2))
+			while($row=mysql_fetch_assoc($result2))
 			{
 				echo $row['count(ID)']."<br>";
 				$count=$row['count(ID)'];
