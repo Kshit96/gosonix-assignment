@@ -34,10 +34,17 @@
                			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
             		}
 
-
-			$sql1="Select * from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
+			$val=mysqli_query("select 1 from `ip_address` LIMIT 1");
+			if($val !== FALSE)
+			{
+  				echo "Table found";
+			}
+			else
+			{
+    				echo "Table not found";
+			}
+			$sql1="Select * from `ip_address` where IP='".$_SERVER['REMOTE_ADDR']."'";
 			$result1=mysqli_query($conn, $sql1);
-			echo $result1;
 			while ($row=mysqli_fetch_array($result1))
 			{
 				print_r($row);
