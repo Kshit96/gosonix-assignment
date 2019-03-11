@@ -62,9 +62,9 @@
 				//$result5=$conn->query($update_query);
 				//print_r($result5->fetch_assoc());
 			}else {
-				$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
-				$result4=$conn->query($sql4);
-				print_r($result4->fetch_assoc());
+				//$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
+				//$result4=$conn->query($sql4);
+				//print_r($result4->fetch_assoc());
 			}
 
 			$sql3="Select * from `ip_addresses` where IP='".$ip2."'";
