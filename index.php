@@ -44,14 +44,14 @@
     				echo "Table not found";
 			}
 			$sql1="Select * from `ip_address` where IP='".$_SERVER['REMOTE_ADDR']."'";
-			$result1=mysqli_query($conn, $sql1);
-			while ($row=mysqli_fetch_array($result1))
+			$result1=$conn->query($sql1);
+			while ($row=$result1->fetch_assoc())
 			{
 				print_r($row);
 			}
 			if ($result1->num_row===0){
-				$sql2="INSER INTO ip_address (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
-				if (mysqli_query($conn, $sql2)) {
+				$sql2="INSER INTO `ip_address` (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
+				if ($conn->query($sql2)) {
                				echo "New record created successfully";
             			} else {
                				echo "Error: " . $sql2 . "" . mysqli_error($conn);
