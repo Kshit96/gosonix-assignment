@@ -47,18 +47,18 @@
 				)";
 			$result=$conn->query($sql);
 			
-			$ip2="1.1.1.6";
+			$ip2=$_SERVER['REMOTE_ADDR'];
 			$sql2="Select count(ID) from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 			$count=0;
 			while($output=$result2->fetch_assoc()){
-				print_r($output['count(ID)']);
+				//print_r($output['count(ID)']);
 				$count=$output['count(ID)'];
-				echo "<br>";
+				//echo "<br>";
 			}
 			
-			echo $count;
-			echo "<br>";
+			//echo $count;
+			//echo "<br>";
 			$Visit=0;
 			$Number=0;
 			$sql3="Select * from `ip_addresses` where IP='".$ip2."'";
@@ -68,14 +68,14 @@
 				$Number=$output2['ID'];
 			}
 
-			echo $Visit;
-			echo "<br>";
-			echo $Number;
-			echo "<br>";
+			//echo $Visit;
+			//echo "<br>";
+			//echo $Number;
+			//echo "<br>";
 
 			if ($count>0){
 				$Visit=$Visit+1;
-				echo "Incremented Visit:".$Visit."<br>";
+				//echo "Incremented Visit:".$Visit."<br>";
 				$update_query="Update `ip_addresses` Set Visit='$Visit' where IP='".$ip2."'";
 				$result5=$conn->query($update_query);
 			}else {
