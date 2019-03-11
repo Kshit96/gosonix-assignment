@@ -59,6 +59,11 @@
 			$sql1="Select * from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
 			$result=mysqli_query($sql1, $sql);
 			echo $result,"<br>";
+			if ($result){
+				echo "Add code to give unique visitor number and visitor number";
+			}else {
+				echo "Add code to add new visitor";
+			}
 			//if(is_resource($result) && mysqli_num_rows($result)==1){
 			//	$row=mysqli_fetch_assoc($result);
 			//	echo $row,"<br>";
