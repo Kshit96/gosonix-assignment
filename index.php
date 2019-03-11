@@ -41,10 +41,13 @@
 			if ($conn->connect_error) {
                			die("Connection failed: " . $conn->connect_error);
             		} 
-            		$sql = "INSERT INTO tutorials_inf(name)VALUES ('".$_POST["name"]."')";
+            		$sql = "CREATE TABLE IF NOT EXIST $table (
+				IP VARCHAR(255) PRIMARY KEY,
+				Visit INT
+				)";
 
             		if (mysqli_query($conn, $sql)) {
-               			echo "New record created successfully";
+               			echo "Table created successfully";
             		} else {
                			echo "Error: " . $sql . "" . mysqli_error($conn);
             		}
