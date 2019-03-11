@@ -33,30 +33,25 @@
             		} else {
                			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
             		}
-			$sql1="Select Visit from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
-			$result=mysqli_query($conn, $sql1);
+			$sql1="Select * from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
+			$result1=mysqli_query($conn, $sql1);
 			while ($row=mysqli_fetch_array($result))
 			{
 				print_r($row);
 			}
-			if ($result->num_row===0){
-				$sql="INSER INTO ip_address (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
-				if (mysqli_query($conn, $sql)) {
+			if ($result1->num_row===0){
+				$sql2="INSER INTO ip_address (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
+				if (mysqli_query($conn, $sql2)) {
                				echo "New record created successfully";
             			} else {
-               				echo "Error: " . $sql . "" . mysqli_error($conn);
+               				echo "Error: " . $sql2 . "" . mysqli_error($conn);
            			}
 				echo "New Row code executed";
 			}else {
 
 				echo "Add code to give unique visitor number and visitor number";
 			}
-			$sql1="Select Visit from ip_address where IP='10.5.214.222'";
-			$result=mysqli_query($conn, $sql1);
-			while ($row=mysqli_fetch_array($result))
-			{
-				print_r($row);
-			}
+			
 
 			//if(is_resource($result) && mysqli_num_rows($result)==1){
 			//	$row=mysqli_fetch_assoc($result);
