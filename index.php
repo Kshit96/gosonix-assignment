@@ -47,8 +47,8 @@
 			}
 			$table='ip_address';
 			$val=mysqli_query("select 1 from `ip_address` LIMIT 1");
-			$res = mysql_query('DESCRIBE ip_address');
-			while($row = mysql_fetch_array($res)) {
+			$res = mysqli_query('DESCRIBE ip_address');
+			while($row = mysqli_fetch_array($res)) {
     				echo "{$row['Field']} - {$row['Type']}\n";
 			}
 			if($val !== FALSE)
