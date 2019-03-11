@@ -39,6 +39,7 @@
 			{
 				print_r($row);
 			}
+			echo $result;
 			if ($result){
 				echo "Add code to give unique visitor number and visitor number";
 			}else {
@@ -49,7 +50,12 @@
                				echo "Error: " . $sql . "" . mysqli_error($conn);
            			}
 			}
-
+			$sql1="Select Visit from ip_address where IP='10.5.214.222'";
+			$result=mysqli_query($conn, $sql1);
+			while ($row=mysqli_fetch_array($result))
+			{
+				print_r($row);
+			}
 
 			//if(is_resource($result) && mysqli_num_rows($result)==1){
 			//	$row=mysqli_fetch_assoc($result);
