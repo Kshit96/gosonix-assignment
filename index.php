@@ -39,16 +39,17 @@
 			{
 				print_r($row);
 			}
-			echo $result;
-			if ($result){
-				echo "Add code to give unique visitor number and visitor number";
-			}else {
+			if ($result->num_row===0){
 				$sql="INSER INTO ip_address (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
 				if (mysqli_query($conn, $sql)) {
                				echo "New record created successfully";
             			} else {
                				echo "Error: " . $sql . "" . mysqli_error($conn);
            			}
+				echo "New Row code executed";
+			}else {
+
+				echo "Add code to give unique visitor number and visitor number";
 			}
 			$sql1="Select Visit from ip_address where IP='10.5.214.222'";
 			$result=mysqli_query($conn, $sql1);
