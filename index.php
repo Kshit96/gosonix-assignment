@@ -50,7 +50,10 @@
 			$ip2="1.1.1.5";
 			$sql2="Select count(ID) from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
-			if ($result2>0){
+			$row=mysql_fetch_array($result2);
+			$count=$row['count(ID)'];
+			echo $count;
+			if ($count>0){
 				print_r($result2->fetch_assoc());
 			}else {
 				echo "New code to be executed";
