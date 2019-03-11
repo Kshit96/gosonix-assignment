@@ -72,13 +72,13 @@
 			}
 
 			$sql = 'SELECT * FROM ip_address';
-   			$retval = mysql_query( $conn,$sql );
+   			$retval = mysqli_query( $conn,$sql );
    
    			if(! $retval ) {
-      			die('Could not get data: ' . mysql_error());
+      			die('Could not get data: ' . mysqli_error($conn));
    			}
    
-  			 while($row = mysql_fetch_assoc($retval)) {
+  			 while($row = mysqli_fetch_assoc($retval)) {
       				echo "ID :{$row['ID']}  <br> ".
          				"VISIT Number : {$row['Visit']} <br> ".
          				"IP ADDRESS : {$row['IP']} <br> ".
