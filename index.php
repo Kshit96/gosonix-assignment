@@ -33,7 +33,7 @@
             		} else {
                			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
             		}
-			$sql1="Select Visit,IP from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
+			$sql1="Select Visit from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
 			$result=mysqli_query($conn, $sql1);
 			if ($conn->query($sql) === TRUE) {
                			echo "Selected successfully","<br>";
@@ -44,7 +44,7 @@
 			if ($result){
 				echo "Add code to give unique visitor number and visitor number";
 			}else {
-				$sql="INSER INTO ip_address (Visit,IP) values (1,".$_SERVER['REMOTE_ADDR'].")";
+				$sql="INSER INTO ip_address (Visit,IP) values (1,'".$_SERVER['REMOTE_ADDR']."')";
 				echo "Add code to add new visitor";
 			}
 
