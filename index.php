@@ -70,7 +70,7 @@
 
 			echo $Visit;
 			echo "<br>";
-			echo $Number
+			echo $Number;
 			echo "<br>";
 
 			if ($count>0){
