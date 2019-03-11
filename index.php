@@ -56,12 +56,18 @@
 
 			$sql2="INSERT INTO `ip_address` (Visit,IP) values (1,'1.1.1.1'),(1,'1.1.1.2'),(1,'1.1.1.3')";
 			
+
 			if ($conn->query($sql2)) {
                			echo "New record created successfully";
             		} else {
                			echo "Error: " . $sql2 . "" . mysqli_error($conn);
            		}
-
+			
+			$resource=$conn->query('Select * from ip_address');
+			while($rows=$resource->fetch_assoc()){
+				print_r($rows);
+			}
+			$resource->free();			
             		$conn->close();
 			echo $_SERVER['REMOTE_ADDR'];
 			$x=53;
