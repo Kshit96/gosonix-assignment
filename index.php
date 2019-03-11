@@ -56,6 +56,10 @@
 			$count=$row[0];
 	
 
+			$sql3="Select * from `ip_addresses` where IP='".$ip2."'";
+			$result3=$conn->query($sql3);
+			$row1=mysqli_fetch_row($result3);
+
 			if ($count>0){
 				settype($visit,'integer');
 				$visit=$row1[1]+1;
@@ -69,9 +73,7 @@
 				//print_r($result4->fetch_assoc());
 			}
 
-			$sql3="Select * from `ip_addresses` where IP='".$ip2."'";
-			$result3=$conn->query($sql3);
-			$row1=mysqli_fetch_row($result3);
+
 
 
 			$resource=$conn->query('Select * from ip_addresses');
