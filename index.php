@@ -38,7 +38,7 @@
     				'save_queries' => TRUE
 			);
 			$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-			$table='ip_address'
+			$table='ip_address';
 			if ($conn->connect_error) {
                			die("Connection failed: " . $conn->connect_error);
             		} 
