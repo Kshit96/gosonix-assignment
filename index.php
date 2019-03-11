@@ -50,7 +50,7 @@
 			$ip2="1.1.1.1";
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
-			if ($result2->num_row<=0){
+			if (mysql_num_rows($result2)<=0){
 				echo "New Row code executed";
 			}else {
 				print_r($result2->fetch_assoc());
