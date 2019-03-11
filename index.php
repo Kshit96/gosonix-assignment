@@ -101,7 +101,7 @@
 			
 			$conn->close();
 	
-			//echo $_SERVER['REMOTE_ADDR'];
+			echo $ip2;
 			$x=$Number/10+.8;
 			$y=$x%10;
 			$pf="th";
