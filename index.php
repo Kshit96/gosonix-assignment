@@ -58,7 +58,7 @@
 			
 			$table='ip_address';
 			
-			$sql="DROP table if exists ip_address";
+			$sql="DROP table if exists `ip_address`";
 			$result=mysqli_query($conn, $sql);
 			echo $result,"<br>";			
             		
@@ -71,7 +71,7 @@
 			else
 			{
     				echo "Table not found";
-			
+			}
 
 			$conn->close();
 			echo $_SERVER['REMOTE_ADDR'];
