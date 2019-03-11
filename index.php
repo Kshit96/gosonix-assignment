@@ -58,6 +58,31 @@
 			}
 			
 			echo $count;
+			echo "<br>";
+			$Visit=0;
+			$Number=0;
+			$sql3="Select * from `ip_addresses` where IP='".$ip2."'";
+			$result3=$conn->query($sql3);
+			while($output2=$result3->fetch_assoc()){
+				$Visit=$output2['Visit'];
+				$Number=$output2['ID'];
+			}
+
+			echo $Visit;
+			echo "<br>";
+			echo $Number
+			echo "<br>";
+
+			if ($count>0){
+				//$visit=$row1[1]+1;
+				//$update_query="Update ip_addresses Set Visit=",$visit," where IP='".$ip2."'";
+				//$result5=$conn->query($update_query);
+				//print_r($result5->fetch_assoc());
+			}else {
+				//$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
+				//$result4=$conn->query($sql4);
+				//print_r($result4->fetch_assoc());
+			}
 
 			$resource=$conn->query('Select * from ip_addresses');
 			while($rows=$resource->fetch_assoc()){
