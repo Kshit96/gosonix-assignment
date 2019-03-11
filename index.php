@@ -50,14 +50,14 @@
 			$ip2="1.1.1.1";
 			$sql2="Select count(ID) from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
+			$count=0;
 			while($output=$result2->fetch_assoc()){
 				print_r($output['count(ID)']);
+				$count=$output['count(ID)'];
 				echo "<br>";
 			}
 			
-			$row=mysqli_fetch_array($result2);
-			echo $row['count(ID)'];
-			
+			echo $count;
 
 			$resource=$conn->query('Select * from ip_addresses');
 			while($rows=$resource->fetch_assoc()){
