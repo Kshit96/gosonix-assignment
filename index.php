@@ -70,7 +70,8 @@
 				print_r($rows);
 				echo "<br>";
 				}
-			
+			$resource->free();			
+
 			$ip="1.1.1.1";
 			$sql1="Select * from `ip_addresses` where IP='".$ip."'";
 			$result1=$conn->query($sql1);			
@@ -81,14 +82,14 @@
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 			echo $result2->num_row;
-			if ($result2->num_row===0){
+			if ($result2->num_row<=0){
 				echo "New Row code executed";
 			}else {
 				print_r($result2->fetch_assoc());
 			}
 			
-						
-			$resource->free();
+			print_r($result2->fetch_assoc());			
+			
 			$conn->close();
 			echo $_SERVER['REMOTE_ADDR'];
 			$x=53;
