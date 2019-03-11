@@ -57,8 +57,10 @@
 	
 
 			if ($count>0){
+				settype($visit,'integer');
 				$visit=$row1[1]+1;
-				$update_query="Update ip_addresses Set Visit='",$visit,"' where IP='".$ip2."'";
+				echo $visit;
+				$update_query="Update `ip_addresses` Set Visit='",$visit,"' where IP='".$ip2."'";
 				//$result5=$conn->query($update_query);
 				//print_r($result5->fetch_assoc());
 			}else {
