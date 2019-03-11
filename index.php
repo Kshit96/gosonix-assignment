@@ -16,6 +16,15 @@
 			
 			$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 			$table='ip_address';
+			$val=mysqli_query("select 1 from `ip_address` LIMIT 1");
+			if($val !== FALSE)
+			{
+  				echo "Table found";
+			}
+			else
+			{
+    				echo "Table not found";
+			}
 			if ($conn->connect_error) {
                			die("Connection failed: " . $conn->connect_error);
             		} 
@@ -34,15 +43,6 @@
                			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
             		}
 
-			$val=mysqli_query("select 1 from `ip_address` LIMIT 1");
-			if($val !== FALSE)
-			{
-  				echo "Table found";
-			}
-			else
-			{
-    				echo "Table not found";
-			}
 			$sql1="Select * from `ip_address` where IP='".$_SERVER['REMOTE_ADDR']."'";
 			$result1=$conn->query($sql1);
 			while ($row=$result1->fetch_assoc())
