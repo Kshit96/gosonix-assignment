@@ -37,6 +37,19 @@
     				'failover' => array(),
     				'save_queries' => TRUE
 			);
+			$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+			if ($conn->connect_error) {
+               			die("Connection failed: " . $conn->connect_error);
+            		} 
+            		$sql = "INSERT INTO tutorials_inf(name)VALUES ('".$_POST["name"]."')";
+
+            		if (mysqli_query($conn, $sql)) {
+               			echo "New record created successfully";
+            		} else {
+               			echo "Error: " . $sql . "" . mysqli_error($conn);
+            		}
+            		$conn->close();
+			echo $_SERVER['REMOTE_ADDR'];
 			$x=53;
 			$y=$x%10;
 			$pf="th";
@@ -57,7 +70,7 @@
 			
 			echo "<center><p>Hi Human ", "\u{1f44b}", " You are the $x<sup>$pf</sup> visitor!</p></center>";
 			
-			echo $_SERVER['REMOTE_ADDR'];
+			
 
 
 		?> 
