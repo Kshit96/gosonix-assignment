@@ -87,6 +87,8 @@
 			else {
 				$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
 				$result4=$conn->query($sql4);
+				//$Number=$result4->fetch_assoc()['ID'];
+				$Visit=1;
 			}
 
 			$resource=$conn->query('Select * from ip_addresses');
