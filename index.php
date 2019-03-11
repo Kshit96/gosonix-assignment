@@ -43,7 +43,7 @@
             		} 
 			else
 			{
-				echo "Connected Successfully";
+				echo "Connected Successfully<br>";
 			}
 			$table='ip_addresses';
 			$sql = "CREATE TABLE IF NOT EXISTS $table (
@@ -57,24 +57,20 @@
 			$val=mysqli_query("select 1 from `ip_addresses` LIMIT 1");
 			if($val !== FALSE)
 			{
-  				echo "Table found";
+  				echo "Table found<br>";
 			}
 			else
 			{
-    				echo "Table not found";
+    				echo "Table not found<br>";
 			}
 			
-			$sql2="INSERT INTO `ip_addresses` (`Visit`,`IP`) values (1,'1.1.1.1'),(1,'1.1.1.2'),(1,'1.1.1.3')";
-			if ($conn->query($sql2)) {
-               			echo "New records created successfully";
-            		} else {
-               			echo "Error: " . $sql2 . "" . mysqli_error($conn);
-           		}
 
 			$resource=$conn->query('Select * from ip_addresses');
 			while($rows=$resource->fetch_assoc()){
 				print_r($rows);
+				echo "<br>";
 			}
+			
 			$resource->free();
 
 			$conn->close();
