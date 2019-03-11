@@ -75,11 +75,12 @@
 			$sql1="Select * from `ip_addresses` where IP='".$ip."'";
 			$result1=$conn->query($sql1);			
 			print_r($result1->fetch_assoc());
-			
+			echo $result1."<br>";
+
 			$ip2="1.1.1.5";
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
-
+			echo $result2."<br>";
 			if ($result2->num_row===0){
 				echo "New Row code executed";
 			}else {
