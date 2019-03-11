@@ -74,7 +74,7 @@
 			echo "<br>";
 
 			if ($count>0){
-				$visit++;
+				$Visit=$Visit+1;
 				echo "Incremented Visit:".$Visit;
 				//$update_query="Update ip_addresses Set Visit=",$visit," where IP='".$ip2."'";
 				//$result5=$conn->query($update_query);
