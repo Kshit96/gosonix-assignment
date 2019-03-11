@@ -86,6 +86,7 @@
 			}
 			else {
 				$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
+				$result4=$conn->query($sql4);
 			}
 
 			//$resource=$conn->query('Select * from ip_addresses');
