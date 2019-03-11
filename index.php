@@ -49,18 +49,19 @@
 				)";
 
             		$result=mysqli_query($conn, $sql);
-			echo $result;
+			echo $result,"<br>";
+			
 			if ($conn->query($sql) === TRUE) {
-               			echo "Table created successfully";
+               			echo "Table created successfully","<br>";
             		} else {
-               			echo "Error: " . $sql . "" . mysqli_error($conn);
+               			echo "Error: " . $sql . "" . mysqli_error($conn),"<br>";
             		}
 			$sql1="Select * from ip_address where IP='".$_SERVER['REMOTE_ADDR']."'";
 			$result=mysqli_query($conn, $sql);
-			echo $result;
+			echo $result,"<br>";
 			//if(is_resource($result) && mysqli_num_rows($result)==1){
 			//	$row=mysqli_fetch_assoc($result);
-			//	echo $row
+			//	echo $row,"<br>";
 
 
             		$conn->close();
