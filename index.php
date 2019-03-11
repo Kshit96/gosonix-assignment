@@ -61,18 +61,6 @@
 			$row1=mysqli_fetch_row($result3);
 			print_r($result3->fetch_assoc());
 
-			if ($count>0){
-				settype($visit,'integer');
-				$visit=$row1['Visit'];
-				echo $visit;
-				//$update_query="Update `ip_addresses` Set Visit='",$visit,"' where IP='".$ip2."'";
-				//$result5=$conn->query($update_query);
-				//print_r($result5->fetch_assoc());
-			}else {
-				//$sql4="INSERT INTO `ip_addresses` (Visit,IP) values (1,'".$ip2."')";
-				//$result4=$conn->query($sql4);
-				//print_r($result4->fetch_assoc());
-			}
 
 
 
