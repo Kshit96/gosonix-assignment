@@ -47,28 +47,7 @@
 				)";
 			$result=$conn->query($sql);
 			
-			$ip2="1.1.1.1";
-			$sql2="Select count(ID) from `ip_addresses` where IP='".$ip2."'";
-			$result2=$conn->query($sql2);
-			while($output=$result2->fetch_assoc()){
-				print_r($output);
-				echo "<br>";
-			}
 			
-			$row=mysqli_fetch_row($result2);
-			$count=$row[0];
-	
-
-			$sql3="Select * from `ip_addresses` where IP='".$ip2."'";
-			$result3=$conn->query($sql3);
-			while($output2=$resource->fetch_assoc()){
-				print_r($output2);
-				echo "<br>";
-			}
-			$row1=mysqli_fetch_row($result3);
-			print_r($result3->fetch_assoc());
-
-
 
 
 
