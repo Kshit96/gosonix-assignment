@@ -96,7 +96,7 @@
 			$conn->close();
 	
 			echo $_SERVER['REMOTE_ADDR'];
-			$x=$Number/10+1;;
+			$x=$Number/10+.8;
 			$y=$x%10;
 			$pf="th";
 			if($y==1)
@@ -113,7 +113,7 @@
 				$pf=$pf;
 			}
 
-			$y=$Visit/10;
+			$y=$Visit%10;
 			$pf1="th";
 			if($y==1)
 			{
