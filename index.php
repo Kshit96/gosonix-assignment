@@ -52,7 +52,7 @@
 			$result2=$conn->query($sql2);
 			print_r($result2->fetch_assoc());
 			
-			$row=mysql_fetch_row($result2);
+			$row=mysqli_fetch_row($result2);
 			
 			if ($count>0){
 				print_r($result2->fetch_assoc());
