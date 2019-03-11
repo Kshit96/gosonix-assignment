@@ -73,7 +73,12 @@
 			//echo $Number;
 			//echo "<br>";
 
-
+			if ($count>0){
+				$Visit=$Visit+1;
+				//echo "Incremented Visit:".$Visit."<br>";
+				$update_query="Update `ip_addresses` Set Visit='$Visit' where IP='".$_SERVER['REMOTE_ADDR']."'";
+				$result5=$conn->query($update_query);
+			}
 
 			//$resource=$conn->query('Select * from ip_addresses');
 			//while($rows=$resource->fetch_assoc()){
