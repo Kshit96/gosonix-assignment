@@ -47,14 +47,13 @@
 				)";
 			$result=$conn->query($sql);
 			
-			$ip2="1.1.1.1";
+			$ip2="1.1.1.5";
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 			if ($result2){
-				echo "New Row code executed";
 				print_r($result2->fetch_assoc());
 			}else {
-				print_r($result2->fetch_assoc());
+				echo "New code to be executed";
 			}
 						
 			
