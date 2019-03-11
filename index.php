@@ -63,7 +63,7 @@
 
 			if ($count>0){
 				settype($visit,'integer');
-				$visit=$row1[1]+1;
+				$visit=$row1['Visit'];
 				echo $visit;
 				//$update_query="Update `ip_addresses` Set Visit='",$visit,"' where IP='".$ip2."'";
 				//$result5=$conn->query($update_query);
