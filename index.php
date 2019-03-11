@@ -80,14 +80,10 @@
 			$sql2="Select * from `ip_addresses` where IP='".$ip2."'";
 			$result2=$conn->query($sql2);
 
-			if ($result1->num_row===0){
+			if ($result2->num_row===0){
 				echo "New Row code executed";
 			}else {
-
-				while ($row=$result2->fetch_assoc())
-				{
-					print_r($row);
-				}
+				print_r($result2->fetch_assoc());
 			}
 			
 						
